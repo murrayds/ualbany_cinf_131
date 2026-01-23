@@ -5,7 +5,7 @@ In this assignment, you will practice essential data wrangling operations in R a
 
 This assignment will help you learn how to:
 
-- Load TSV (tab-separated values) files into RStudio
+- Load an excel spreadsheet into RStudio
 - Use `select()` to choose specific columns from a dataset
 - Use `mutate()` to create new variables based on existing ones
 - Use `filter()` to subset data based on conditions
@@ -14,7 +14,7 @@ This assignment will help you learn how to:
 
 ## Instructions
 
-First, download the `customer_personality.tsv` file from Brightspace and save it to a location on your computer that you can easily find (such as your Documents folder or a folder specifically for this class).
+First, download the `customers.xlsx` file from Brightspace and save it to a location on your computer that you can easily find (such as your Documents folder or a folder specifically for this class).
 
 This data is originally taken from Kaggle. It contains detailed information about a company's "ideal customers", including information about customer demographics, income, and amount spent in different spending categories. 
 
@@ -45,20 +45,26 @@ library(tidyverse)
 
 # TODO: Set your working directory
 # Option 1: Use the menu (Session > Set Working Directory > Choose Directory)
-# Option 2: Uncomment ONE of the lines below and update the path to match where you saved the TSV file
+# Option 2: Uncomment ONE of the lines below and update the path to match where you saved the file
 # setwd("C:/Users/YourName/Documents/CINF131")  # Windows example
 # setwd("/Users/YourName/Documents/CINF131")     # Mac example
 
 # Check your working directory
 getwd()
 
-# List files in your working directory to confirm the TSV is there
-# You should see "customer_personality.tsv" in the output
+# List files in your working directory to confirm the file is there
+# You should see "customers.xlsx" in the output
 list.files()
 
+# TODO - load the readxl library
+# Be sure that the readxl library is installed.
+# If the following line gives an error, then run install.packages("readxl") in the console
+library(readxl)
+
 # TODO: Load the dataset
-# TSV files use tabs instead of commas, so we use read.delim()
-customer_data <- read.delim("[your file name here]")
+# The file is in a .xlsx spreadsheet
+
+customer_data <- read_excel("[your file name here]", sheet = 1)
 
 # Explore the dataset
 head(customer_data)
@@ -154,13 +160,13 @@ You should have installed tidyverse in Assignment 1. If you're on a different co
 install.packages("tidyverse")
 ```
 
-**`"Error: 'customer_personality.tsv' does not exist in current working directory"`**
+**`"Error: 'customers.xlsx' does not exist in current working directory"`**
 
-This means R cannot find your TSV file. Check the following:
+This means R cannot find your file. Check the following:
 
 1. Did you download the file and save it?
 2. Is your working directory set to the folder where you saved the file? Run `getwd()` to check.
-3. Does the filename match exactly? TSV files end in `.tsv`, not `.csv`
+3. Does the filename match exactly? Excel files end in `.xlsx`, not `.csv`
 
 Use `Session > Set Working Directory > Choose Directory` to navigate to the correct folder, then try loading the data again.
 
