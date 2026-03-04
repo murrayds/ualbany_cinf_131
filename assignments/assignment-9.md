@@ -1,3 +1,5 @@
+Assignment 9 - Making avocados look bad
+
 ## Overview
 
 In this assignment, you'll practice both good and bad data visualization by creating two charts that answer the same question: one that follows all the best practices you've learned, and one that deliberately violates them in creative ways.
